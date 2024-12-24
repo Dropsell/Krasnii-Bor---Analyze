@@ -149,7 +149,7 @@ centrality = Centrality(city_model=city)
 result_centrality = centrality.calculate()
 result_centrality
 ```
-<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/connection%20services%20carograms.png"></img>
+<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/connection%20services%20cartograms.png"></img>
 
 9.  Далее ```PopulationCentrality```- оценка центральности по транспортной связности и населению в кварталах
 
@@ -159,6 +159,8 @@ result_centrlity_population = centrality_population.calculate()
 result_centrlity_population
 ```
 <img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/connection%20population%20cartograms.png"></img>
+
+10. Файлы с собранными моделями, слоем кварталов, моделью транспортной доступности выгружаются в подпапки соответсвующих сценариев в папку <a href = "https://github.com/Dropsell/Krasnii-Bor---Analyze/tree/main/results">results</a>.
 
 
 ## Анализ результатов
