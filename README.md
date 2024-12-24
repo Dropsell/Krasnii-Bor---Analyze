@@ -94,7 +94,7 @@ city = City(
 
 4. Методом ```Connectivity``` расчитывается картограмма связности. 
 
-<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/connection%20cartograms.png" height = 500></img>
+<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/connection%20cartograms.png"></img>
 
 5. Далее идёт обработка зданий из файла ```building.geojson```. Устанавливаются жилые\нежилые здания, восполняется население в жилых зданиях. Полученный слой зданий выгружается в модель.
 6. Затем в модель выгружаются все файлы с сервисами, представляемые слоями с точками. Это:
@@ -137,10 +137,10 @@ prov_res = prov.calculate(service_type)
 prov.plot(prov_res)
 ```
 
-<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/scenarion%200%20services%20cartograms.png" height = 500></img>
-<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/scenarion%201%20services%20cartograms.png" height = 500></img>
-<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/scenarion%202%20services%20cartograms.png" height = 500></img>
-<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/scenarion%203%20services%20cartograms.png" height = 500></img>
+<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/scenarion%200%20services%20cartograms.png"></img>
+<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/scenarion%201%20services%20cartograms.png"></img>
+<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/scenarion%202%20services%20cartograms.png"></img>
+<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/scenarion%203%20services%20cartograms.png"></img>
 
 8.  После чего с помощью ```Centrality``` была произведена оценка центральности по транспортной связности и разнообразию сервисов в кварталах
 
@@ -149,7 +149,7 @@ centrality = Centrality(city_model=city)
 result_centrality = centrality.calculate()
 result_centrality
 ```
-<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/connection%20services%20cartograms.png" height = 500></img>
+<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/connection%20services%20carograms.png"></img>
 
 9.  Далее ```PopulationCentrality```- оценка центральности по транспортной связности и населению в кварталах
 
@@ -158,7 +158,82 @@ centrality_population = PopulationCentrality(city_model=city)
 result_centrlity_population = centrality_population.calculate()
 result_centrlity_population
 ```
-<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/connection%20population%20cartograms.png" height = 500></img>
+<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/connection%20population%20cartograms.png"></img>
 
 
-## Анализ
+## Анализ результатов
+Оценка выявления наиболее жизнеспособного сценария развития территории были применены следующие критерии оценки:
+<table>
+  <thead>
+    <tr>
+      <th>Критерий оценки</th>
+      <th>Значение для нулевого сценария</th>
+      <th>Значение для гипотезы №1</th>
+      <th>Значение для гипотезы №2</th>
+      <th>Значение для гипотезы №3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Связанность территории </td>
+      <td>от 0 до 9</td>
+      <td>от 0 до 8</td>
+      <td>от 0 до 10</td>
+      <td>от 0 до 9</td>
+</tr>
+   <tr>
+      <td>Обеспеченность территории остановками общественного транспорта</td>
+      <td>0.060</td>
+      <td>0.088</td>
+      <td>0.083</td>
+      <td>0.110</td>
+    </tr>
+    <tr>
+       <td>Обеспеченность территории детскими садами</td>
+       <td>0.060</td>
+       <td>0.035</td>
+       <td>0.070</td>
+       <td>0.097</td>
+    </tr>
+    <tr>
+      <td>Обеспеченность территории школами</td>
+      <td>0.060</td>
+      <td>0.028</td>
+      <td>0.065</td>
+      <td>0.073</td>     
+    </tr>
+    <tr>
+      <td>Обеспеченность территории супермаркетами</td>
+      <td>0.003</td>
+      <td>0.017</td>
+      <td>0.032</td>
+      <td>0.043</td>
+    </tr>
+    <tr>
+      <td>Оценка центральности по транспортной связности и разнообразию сервисов в кварталах</td>
+      <td>от 0 до 0.35</td>
+      <td>от 0 до 0.5</td>
+      <td>от 0 до 0.4</td>
+      <td>от 0 до 0.5</td>
+    </tr>
+   <tr>
+      <td>Оценка центральности по транспортной связности и населению в кварталах</td>
+      <td>от 0 до 10</td>
+      <td>от 0 до 10</td>
+      <td>от 0 до 10</td>
+      <td>от 0 до 10</td>
+    </tr>
+  </tbody>
+</table>
+
+### 
+
+## Вывод
+### Эффективность гипотез:
+Сравнение гипотез развития позволяет выявить сильные и слабые стороны каждого сценария. Например, одна гипотеза может улучшать транспортную связанность, но быть недостаточной с точки зрения обеспечения сервисами.
+
+### Рекомендации по развитию:
+Итоги анализа позволяют предложить конкретные меры для реализации наиболее эффективного сценария развития. Результаты исследования формируют базу для принятия решений по развитию Красноборского сельского поселения.
+
+### Приоритетные районы:
+Определены ключевые зоны для развития, которые требуют дополнительных инвестиций в транспортную инфраструктуру и создание сервисов. Также важно равномерное распределение сервисов, чтобы сократить неравенство между центральными и удаленными районами.
