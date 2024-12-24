@@ -82,9 +82,83 @@
 Для каждого сценария был созданы файлы ```.ipynb```, расположенные в папке <a href = "https://github.com/Dropsell/Krasnii-Bor---Analyze/tree/main/dev">dev</a>. Файлы отличаются только входными данными, исполняемый код индентичен. 
 
 1. Сначала добавляются границы территории, улично-дорожная сеть существующей застройки из файлов ```boundary.geojson```, ```roads.geojson```
-2. На основе этих файлов генерируются кварталы с помощью библиотеки ```BlocksGenerator``` из BlocksNet 
+2. На основе этих файлов генерируются кварталы с помощью библиотеки ```BlocksGenerator``` из BlocksNet
 
-3. ```building.geojson```
+3. С помощью метода ```AccessibilityProcessor``` строится матрица связности. Полученные кварталы и матрица заносятся в модель
+```py
+city = City(
+    blocks=blocks,
+    acc_mx=acc_mx
+)
+```
+
+4. Методом ```Connectivity``` расчитывается картограмма связности. 
+
+<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/connection%20cartograms.png" height = 500></img>
+
+5. Далее идёт обработка зданий из файла ```building.geojson```. Устанавливаются жилые\нежилые здания, восполняется население в жилых зданиях. Полученный слой зданий выгружается в модель.
+6. Затем в модель выгружаются все файлы с сервисами, представляемые слоями с точками. Это:
+<ul>
+ <li>супермаркеты;</li>
+ <li>школы;</li>
+ <li>детсткие сады;</li>
+ <li>остановки общественного транспорта.</li>
+</ul>
+
+```py
+import os
+import geopandas as gpd
+from shapely.geometry import Point
+from blocksnet import ServiceType
+
+directory = os.fsencode(f"{data_path}/servises/")
+for file in os.listdir(directory):
+    filename = os.fsdecode(file)
+    if filename.endswith(".geojson"):
+        service_name = filename.removesuffix(".geojson")
+        print(f"Adding service {service_name}")
+        service_gdf = gpd.read_file(f"{data_path}/servises/" + filename)
+        service_gdf.to_crs(local_crs, inplace=True)
+        service = service_gdf[["geometry"]]
+        try:
+          city.update_services(service_name, service)
+        except:
+          continue
+    else:
+        continue
+```
+
+7.  С помощью ```Provision``` был произведёт подсчёт обеспеченности кварталов сервисами: супермаркеты, школы, детсткие сады, остановки общественного транспорта.
+```py
+from blocksnet import Provision, ProvisionMethod
+service_type = 'bus_station'
+prov = Provision(city_model=city)
+prov_res = prov.calculate(service_type)
+prov.plot(prov_res)
+```
+
+<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/scenarion%200%20services%20cartograms.png" height = 500></img>
+<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/scenarion%201%20services%20cartograms.png" height = 500></img>
+<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/scenarion%202%20services%20cartograms.png" height = 500></img>
+<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/scenarion%203%20services%20cartograms.png" height = 500></img>
+
+8.  После чего с помощью ```Centrality``` была произведена оценка центральности по транспортной связности и разнообразию сервисов в кварталах
+
+```py
+centrality = Centrality(city_model=city)
+result_centrality = centrality.calculate()
+result_centrality
+```
+<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/connection%20services%20cartograms.png" height = 500></img>
+
+9.  Далее ```PopulationCentrality```- оценка центральности по транспортной связности и населению в кварталах
+
+```py
+centrality_population = PopulationCentrality(city_model=city)
+result_centrlity_population = centrality_population.calculate()
+result_centrlity_population
+```
+<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/connection%20population%20cartograms.png" height = 500></img>
 
 
 ## Анализ
