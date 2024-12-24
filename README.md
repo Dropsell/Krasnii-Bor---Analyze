@@ -61,18 +61,30 @@
 Все исходные данные геослёв хранятся в папках соответсвующих сценариев в папке <a href = "https://github.com/Dropsell/Krasnii-Bor---Analyze/tree/main/data">data</a>
 
 
-## Создание модели
+## Сценарии
 ### Сценарий 0 - Существующее положение
-В нулемов сценарии рассматривается текущая ситуация в сельском поселение, где нет никакой застройки
-<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/sorce/0%20scenario.png" height = 720></img>
-### Сценарий 1
-<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/sorce/1%20scenario.png" height = 720></img>
-### Сценарий 2
-<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/sorce/2%20scenario.png" height = 720></img>
-### Сценарий 3
-<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/sorce/3%20scenario.png" height = 720></img>
-## Реализация методов
+<p>В нулемов сценарии рассматривается текущая ситуация в сельском поселение, где нет никакой застройки</p>
+<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/0%20scenario.png" height = 500></img>
 
+### Сценарий 1 - Сохранение ландшафта
+<p>В данной гипотезы предполагается сохранение природного ландшафта на основе существующего положения</p>
+<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/1%20scenario.png" height = 500></img>
+
+### Сценарий 2 - Развитие промышленности
+<p>Данная гипотеза ориентрованна на развитие промышленности</p>
+<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/2%20scenario.png" height = 500></img>
+
+### Сценарий 3 - Высокая урбанизация
+<p>В данной гипотезе предполагается развитие высокоурбанизированной территории</p>
+<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/img/3%20scenario.png" height = 500></img>
+
+## Создание модели и реазлизация методов
+Для каждого сценария был созданы файлы ```.ipynb```, расположенные в папке <a href = "https://github.com/Dropsell/Krasnii-Bor---Analyze/tree/main/dev">dev</a>. Файлы отличаются только входными данными, исполняемый код индентичен. 
+
+1. Сначала добавляются границы территории, улично-дорожная сеть существующей застройки из файлов ```boundary.geojson```, ```roads.geojson```
+2. На основе этих файлов генерируются кварталы с помощью библиотеки ```BlocksGenerator``` из BlocksNet 
+
+3. ```building.geojson```
 
 
 ## Анализ
