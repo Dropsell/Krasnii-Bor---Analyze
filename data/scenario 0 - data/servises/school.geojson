@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "school_0",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "full_id": "n1886724858", "osm_id": "1886724858", "osm_type": "node", "amenity": "school", "locked": null, "access": null, "foot": null, "barrier": null, "capacity": 550 }, "geometry": { "type": "Point", "coordinates": [ 30.6901008, 59.6751586 ] } }
+]
+}

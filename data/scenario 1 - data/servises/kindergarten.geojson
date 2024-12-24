@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"name": "kindergarten_11",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": null, "capacity": 200, "full_id": null, "osm_id": null, "osm_type": null, "amenity": null, "name": null, "foot": null, "access": null, "barrier": null, "layer": null, "path": null }, "geometry": { "type": "Point", "coordinates": [ 30.700500017481961, 59.664625900402598 ] } },
+{ "type": "Feature", "properties": { "id": null, "capacity": 200, "full_id": null, "osm_id": null, "osm_type": null, "amenity": null, "name": null, "foot": null, "access": null, "barrier": null, "layer": null, "path": null }, "geometry": { "type": "Point", "coordinates": [ 30.701566852997196, 59.660665364733646 ] } },
+{ "type": "Feature", "properties": { "id": null, "capacity": 150, "full_id": null, "osm_id": null, "osm_type": null, "amenity": null, "name": null, "foot": null, "access": null, "barrier": null, "layer": null, "path": null }, "geometry": { "type": "Point", "coordinates": [ 30.701940245427537, 59.669582646386715 ] } },
+{ "type": "Feature", "properties": { "id": 5, "capacity": 200, "full_id": null, "osm_id": null, "osm_type": null, "amenity": null, "name": null, "foot": null, "access": null, "barrier": null, "layer": "kindergarten", "path": "D:/ИТМО 2/Анализ данных и моделирование/проект/kindergarten.geojson|layername=kindergarten" }, "geometry": { "type": "Point", "coordinates": [ 30.704705520000712, 59.656001253130313 ] } },
+{ "type": "Feature", "properties": { "id": 6, "capacity": 200, "full_id": null, "osm_id": null, "osm_type": null, "amenity": null, "name": null, "foot": null, "access": null, "barrier": null, "layer": "kindergarten", "path": "D:/ИТМО 2/Анализ данных и моделирование/проект/kindergarten.geojson|layername=kindergarten" }, "geometry": { "type": "Point", "coordinates": [ 30.696457324281159, 59.657296348828844 ] } },
+{ "type": "Feature", "properties": { "id": 9, "capacity": 200, "full_id": null, "osm_id": null, "osm_type": null, "amenity": null, "name": null, "foot": null, "access": null, "barrier": null, "layer": "kindergarten", "path": "D:/ИТМО 2/Анализ данных и моделирование/проект/kindergarten.geojson|layername=kindergarten" }, "geometry": { "type": "Point", "coordinates": [ 30.703724653482716, 59.652217034830436 ] } }
+]
+}
