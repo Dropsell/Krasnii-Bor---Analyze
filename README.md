@@ -62,7 +62,17 @@
 
 
 ## Создание модели
-
+### Сценарий 0 - Существующее положение
+В нулемов сценарии рассматривается текущая ситуация в сельском поселение, где нет никакой застройки
+<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/sorce/0%20scenario.png" height = 720></img>
+### Сценарий 1
+<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/sorce/1%20scenario.png" height = 720></img>
+### Сценарий 2
+<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/sorce/2%20scenario.png" height = 720></img>
+### Сценарий 3
+<img src = "https://github.com/Dropsell/Krasnii-Bor---Analyze/blob/main/sorce/3%20scenario.png" height = 720></img>
 ## Реализация методов
+
+
 
 ## Анализ
